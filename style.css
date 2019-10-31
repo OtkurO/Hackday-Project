@@ -1,0 +1,61 @@
+/* normalizing styles */
+* {
+  box-sizing: border-box;
+  --main-color: #f4f5f4;
+  --font-color: #0b0d46;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: var(--font-color);
+  margin: 0;
+  padding: 0;
+}
+html {
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  background: var(--main-color);
+}
+
+.btn {
+  overflow: visible;
+  background-color: var(--font-color);
+  border: 2px solid rgba(255, 255, 255, 0.043);
+  border-radius: 6px;
+  margin: 5px 20px 5px 35px;
+  padding: 5px 10px;
+  color: white;
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.979);
+}
+
+.input {
+  display: flex;
+  background-color: rgba(199, 233, 248, 0.349);
+  border: none;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(126, 125, 125);
+  border-radius: 5px;
+  font-size: 3.8vw;
+  text-align: center;
+  text-
+}
+.btn:hover,
+.btn:active,
+.btn:focus,
+.input:hover,
+.input:active,
+.input:focus {
+  background-color: #ae1feb4f;
+}
+
+.char-tile {
+  width: 4vw;
+  height: 4vw;
+  margin: 1vw;
+}
+
+@media screen and (min-width: 300px) {
+}

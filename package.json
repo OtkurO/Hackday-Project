@@ -1,0 +1,19 @@
+{
+  "name": "fall19-hackdayproject",
+  "version": "1.0.0",
+  "description": "Hackday project",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OtkurO/fall19-HackdayProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OtkurO/fall19-HackdayProject/issues"
+  },
+  "homepage": "https://github.com/OtkurO/fall19-HackdayProject#readme"
+}
