@@ -8,16 +8,34 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="char-tile">
-      <input
-        class="input"
-        type="text"
-        name="tile"
-        id="char-tile-1"
-        maxlength="1"
-        size="1"
-      />
+    <h1 class="app-title">Welcome To The Crossword Game!</h1>
+    <div class="main-body">
+      <div class="input-game-setting">
+        <form id="input-form">
+          Please select the size of the game board:
+          <br />
+          <input type="radio" name="size-input" value="11" />
+          11 by 11
+          <input type="radio" name="size-input" value="15" />
+          15 by 15
+          <input
+            class="input form"
+            id="submit-form"
+            type="submit"
+            value="Submit"
+          />
+        </form>
+      </div>
+      <br />
+      <div class="main-content">
+        <div class="gameboard"></div>
+        <div class="hintboard"></div>
+      </div>
+      <div class="status-board">
+        <p class="status-board-text"></p>
+      </div>
     </div>
+
     <script src="index.js"></script>
   </body>
 </html>

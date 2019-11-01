@@ -1,14 +1,9 @@
-const fs = require('fs');
 const gameBoard = document.querySelector('.gameboard');
 const form = document.querySelector('#input-form');
 const statusElement = document.querySelector('.status-board-text');
 let totalTiles;
 let correctTiles = 0;
 let counter = 1;
-
-let rawdata = fs.readFileSync('words.json');
-console.log(rawdata);
-
 
 const createRow = length => {
   let row = document.createElement('DIV');
@@ -18,7 +13,8 @@ const createRow = length => {
   let randNr3 = Math.floor(Math.random() * length);
   let randNr4 = Math.floor(Math.random() * length);
   let randNr5 = Math.floor(Math.random() * length);
-  let arr = [randNr1, randNr2, randNr3, randNr4, randNr5];
+  let randNr6 = Math.floor(Math.random() * length);
+  let arr = [randNr1, randNr2, randNr3, randNr4, randNr5, randNr6];
   for (let i = 0; i < length; i += 1) {
     if (!arr.includes(i)) {
       let oneTile = document.createElement('DIV');
@@ -62,7 +58,6 @@ const createBoard = sLength => {
 };
 
 const removeOrphanedTiles = () => {
-  let countBlack = 1;
   for (let i = 1; i <= totalTiles; i += 1) {
     let sideLength = Math.sqrt(totalTiles);
     let currentTile = document.getElementById(i);
@@ -86,8 +81,23 @@ const removeOrphanedTiles = () => {
       document.getElementById(i + sideLength).className === 'input'
         ? 1
         : 0;
+
+    let totalSurroundingVal;
+    if (i < sideLength) {
+      totalSurroundingVal = leftExistVal + rightExistVal + lowerExistVal;
+    } else if (i > totalTiles - sideLength + 1) {
+      totalSurroundingVal = leftExistVal + rightExistVal + upperExistVal;
+    } else if (i % 15 === 0) {
+      totalSurroundingVal = leftExistVal + upperExistVal + lowerExistVal;
+    } else if (i % 15 === 1) {
+      totalSurroundingVal = rightExistVal + upperExistVal + lowerExistVal;
+    } else {
+      totalSurroundingVal =
+        leftExistVal + rightExistVal + upperExistVal + lowerExistVal;
+    }
+
     if (currentTile.className === 'input') {
-      if (leftExistVal + rightExistVal + upperExistVal + lowerExistVal === 0) {
+      if (totalSurroundingVal === 0) {
         currentTile.className = 'non-input';
         currentTile.setAttribute('readonly', 'readonly');
       }
@@ -96,7 +106,7 @@ const removeOrphanedTiles = () => {
 };
 
 const updateStatusBoard = () => {
-  statusElement.innerHTML = `Your progress: ${correctTiles / totalTiles}`;
+  statusElement.innerHTML = `Your progress: ${correctTiles} / ${totalTiles}`;
 };
 
 form.addEventListener('submit', event => {
